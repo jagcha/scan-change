@@ -103,13 +103,13 @@ These segments of ones can be zoomed-in to extract further information and chara
 
 What are the optimal values of $u_a$ and $u_r$? This is an optimization problem.
 
-Suppose that we have a true vector of F for animal 470. Then we can try to find $u_a$ and $u_r$ such that the distance between $\widehat{\mathbf{F}}_{470}$ and $\mathbf{F}_{470}$ is minimized.
+Suppose that we have a true vector of F for animal 470. Then we can try to find $u_a$ and $u_r$ such that the distance between estimated and observed vector of F is minimized.
 
 Now as PhD I know many techniques that could serve that propose. However, at the time where I developed this script I was a MS and I didn't knew most of them. At that time, I solved this optimization problem with an iterative and exaustive method. 
 
 For a subset of animals, I had the vector $\mathbf{F}_{.}$ obtained from a **gold standard software** defining `Heat Indices`.  
 
-I then tested an alternative pair of units $(u_{a,1}, u_{r,1})$, which produced an estimated vector $$\widehat{\mathbf{F}}_{ \{.,1,1\} }$$. The distance between $\mathbf{F}_{.}$ and $\widehat{\mathbf{F}}_{.,1,1}$ was evaluated using the **F1 score**, denoted $F1_{1,1}$.  
+I then tested an alternative pair of units $(u_{a,1}, u_{r,1})$, which produced an estimated vector $\widehat{\mathbf{F}}_{ \{.,1,1\}}$. The distance between $\mathbf{F}_{.}$ and $\widehat{\mathbf{F}}_{.,1,1}$ was evaluated using the **F1 score**, denoted $F1_{1,1}$.  
 
 Next, I changed the rumination unit to $u_{r,2}$ while keeping $u_{a,1}$ fixed, obtaining $\widehat{\mathbf{F}}_{.,1,2}$ and the corresponding F1 score $F1_{1,2}$.  
 
