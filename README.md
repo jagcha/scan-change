@@ -55,30 +55,33 @@ The windows $w_1$, $w_2$, and $w_3$ are rolled together with a **sliding paramet
 
 At each 2-hour increment, computations are triggered using the data inside $w_1$ and $w_3$. For `ID 470` at iteration `3240`:  
 
-- $w_1$ returns an **activity mean** of `38.3` (smoothed activity).  
-- $w_3$ returns an **activity mean** of `41.9` and a **sample standard deviation** of `10.5`.  
+- $w_1$ returns an **activity mean** of `38.3`. Define this value as $a_{1, 470, 3240}$ named as (smoothed activity).  
+- $w_3$ returns an **activity mean** of `41.9`. Define this value as $a_{3_1, 470, 3240}$.
+- $w_3$ return an **activity sample standard deviation** of `10.5`. Define this value as $a_{3_2, 470, 3240}$.
 
 The **past activity threshold** for `ID 470` at iteration `3240` is defined as:  
 
-\[
-T_{1,470,3240} = \text{mean}(w_3) + 2 \cdot \text{SD}(w_3) = 41.9 + 2 \cdot 10.5 = 62.9
-\]  
+$$
+T_{a,470,3240} = a_{3_1, 470, 3240} + 2 \times $a_{3_2, 470, 3240}$ = 41.9 + 2 \times 10.5 = 62.9
+$$  
 
 Similarly, for **rumination**:  
 
-- $w_1$ returns a **rumination mean** of `35.3`.  
-- $w_3$ returns a **rumination mean** of `48` and a **sample standard deviation** of `14.7`.  
+- $w_1$ returns an **rumination mean** of `35.3`. Define this value as $r_{1, 470, 3240}$ named as (smoothed activity).  
+- $w_3$ returns an **rumination mean** of `48`. Define this value as $r_{3_1, 470, 3240}$.
+- $w_3$ return an **rumination sample standard deviation** of `14.7`. Define this value as $r_{3_2, 470, 3240}$.
+
 
 The **past rumination threshold** is defined as:  
 
 $$
-T_{2,470,3240} = \text{mean}(w_3) - 0.5 \cdot \text{SD}(w_3) = 48 - 0.5 \cdot 14.7 = 40.65 \approx 40.6
+T_{r,470,3240} = r_{3_1, 470, 3240} - 0.5 \times r_{3_2, 470, 3240} = 48 - 0.5 \times 14.7 = 40.65 \approx 40.6
 $$
 
 For a given iteration $t$, a **change in behavior** is flagged when:  
 
 $$
-\text{smoothed activity from } w_1 > T_{1,470,t} \quad \text{and} \quad \text{smoothed rumination from } w_1 < T_{2,470,t}
+a_{1, 470, t} >= T_{a,470,t} \quad \text{and} \quad r_{1, 470, t} <= T_{2,470,t}
 $$
 
 If the condition holds, a variable $F_{470,t} = 1$ is defined. Otherwise, $F_{470,t} = 0$.  
