@@ -40,14 +40,51 @@ No missing values (`NA`) are allowed in any column. When gaps occur in high-freq
 
 ## Logic of Sliding Window.
 
-The image below is used to conceptually explain how a rolling wondow works. 
+Schematic representation of the sliding window technique for processing raw activity and rumination time-series data. (white theme recommedned).
 ![Alt text](SlidingWindowExample.png)
 
+Schematic representation of the sliding window technique applied to activity and rumination time-series data of animal `ID 470`, focusing on iterations `3239` and `3240`.  
 
+The window spanning the **earliest set of raw records** is defined as $w_1$. In this example, $w_1$ has a width of **6 hours**.  
 
+The window spanning **older records** is defined as $w_3$, which has a width of **14 hours**.  
 
+Between $w_1$ and $w_3$, a segment $w_2$ is inserted to allow contrast between **present** and **past** information. Here, $w_2$ has a width of **6 hours**.  
 
+The windows $w_1$, $w_2$, and $w_3$ are rolled together with a **sliding parameter** of **2 hours**. When the sliding parameter is smaller than the window width, this is referred to as an **overlapping rolling window**.  
 
+At each 2-hour increment, computations are triggered using the data inside $w_1$ and $w_3$. For `ID 470` at iteration `3240`:  
 
+- $w_1$ returns an **activity mean** of `38.3` (smoothed activity).  
+- $w_3$ returns an **activity mean** of `41.9` and a **sample standard deviation** of `10.5`.  
+
+The **past activity threshold** for `ID 470` at iteration `3240` is defined as:  
+
+\[
+T_{1,470,3240} = \text{mean}(w_3) + 2 \cdot \text{SD}(w_3) = 41.9 + 2 \cdot 10.5 = 62.9
+\]  
+
+Similarly, for **rumination**:  
+
+- $w_1$ returns a **rumination mean** of `35.3`.  
+- $w_3$ returns a **rumination mean** of `48` and a **sample standard deviation** of `14.7`.  
+
+The **past rumination threshold** is defined as:  
+
+\[
+T_{2,470,3240} = \text{mean}(w_3) - 0.5 \cdot \text{SD}(w_3) = 48 - 0.5 \cdot 14.7 = 40.65 \approx 40.6
+\]  
+
+For a given iteration $t$, a **change in behavior** is flagged when:  
+
+\[
+\text{smoothed activity from } w_1 > T_{1,470,t} \quad \text{and} \quad \text{smoothed rumination from } w_1 < T_{2,470,t}
+\]  
+
+If the condition holds, a variable $F_{470,t} = 1$ is defined. Otherwise, $F_{470,t} = 0$.  
+
+After scanning the entire chronological sequence with the sliding window, a vector $\mathbf{F}_{470}$ is constructed. It is mostly composed of zeros, with occasional sequences of ones corresponding to **outstanding increases in activity and decreases in rumination**.  
+
+These segments of ones can be **zoomed-in** to extract further information and characterize the behavioral changes at that moment.
 
 
