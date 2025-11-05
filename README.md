@@ -41,7 +41,7 @@ No missing values (`NA`) are allowed in any column. When gaps occur in high-freq
 ## Logic of Sliding Window.
 
 The image below is used to conceptually explain how a rolling wondow works. 
-![Alt text](path/to/image.png)
+![Alt text](SlidingWindowExample.png)
 
 
 
