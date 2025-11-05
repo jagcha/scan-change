@@ -55,7 +55,7 @@ The windows $w_1$, $w_2$, and $w_3$ are rolled together with a **sliding paramet
 
 At each 2-hour increment, computations are triggered using the data inside $w_1$ and $w_3$. For `ID 470` at iteration `3240`:  
 
-- $w_1$ returns an **activity mean** of `38.3`. Define this value as $a_{1, 470, 3240}$ named as (smoothed activity).  
+- $w_1$ returns an **activity mean** of `38.3`. Define this value as $a_{1, 470, 3240}$. This value is reffered as smoothed activity.  
 - $w_3$ returns an **activity mean** of `41.9`. Define this value as $a_{3_1, 470, 3240}$.
 - $w_3$ return an **activity sample standard deviation** of `10.5`. Define this value as $a_{3_2, 470, 3240}$.
 
@@ -67,7 +67,7 @@ $$
 
 Similarly, for **rumination**:  
 
-- $w_1$ returns an **rumination mean** of `35.3`. Define this value as $r_{1, 470, 3240}$ named as (smoothed activity).  
+- $w_1$ returns an **rumination mean** of `35.3`. Define this value as $r_{1, 470, 3240}$. This value is reffered as smoothed rumination.  
 - $w_3$ returns an **rumination mean** of `48`. Define this value as $r_{3_1, 470, 3240}$.
 - $w_3$ return an **rumination sample standard deviation** of `14.7`. Define this value as $r_{3_2, 470, 3240}$.
 
