@@ -86,15 +86,13 @@ $$
 
 
 If the condition holds, the variable below is defined.
-$$
-\hat{F}_{470,t} = 1
-$$
+
+$\hat{F}_{470,t} = 1$
 
 
 If the condition doesn't hold, the variable below is defined.
-$$
-\hat{F}_{470,t} = 0
-$$
+
+$\hat{F}_{470,t} = 0$
 
 
 Once the status of $\hat{F}_{470t}$ is defined, we proceed to repeat the process for $t+1$. This hapens iterativelly, from the first to the last behavioral record of animal 470.
