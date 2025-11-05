@@ -84,11 +84,20 @@ $$
 a_{1, 470, t} >= T_{a,470,t} \quad \text{and} \quad r_{1, 470, t} <= T_{2,470,t}
 $$
 
-$\hat{F}_{470,t} = 1$
 
-If the condition holds, a variable $\hat{F}_{470,t} = 1$ is defined. Otherwise, $\hat{F}_{470,t} = 0$.
+If the condition holds, the variable below is defined.
+$$
+\hat{F}_{470,t} = 1
+$$
 
-Once the status of $\hat{F}_{470,t}$ is defined, we proceed to repeat the process for $t+1$. This hapens iterativelly, from the first to the last behavioral record of animal 470.
+
+If the condition doesn't hold, the variable below is defined.
+$$
+\hat{F}_{470,t} = 0
+$$
+
+
+Once the status of $\hat{F}_{470t}$ is defined, we proceed to repeat the process for $t+1$. This hapens iterativelly, from the first to the last behavioral record of animal 470.
 
 After scanning the entire chronological sequensce with the sliding window, a vector $\widehat{\mathbf{F}}_{470}$ is constructed. It is mostly composed of zeros, with occasional sequences of ones corresponding to **outstanding increases in activity and decreases in rumination**.  
 
