@@ -101,8 +101,6 @@ After scanning the entire chronological sequensce with the sliding window, a vec
 
 These segments of ones can be zoomed-in to extract further information and characterize the behavioral changes at that moment.
 
-What are the optimal values of $u_a$ and $u_r$?
-
 **Estimating the units $u_a$ and $u_r$**
 
 The objective is to find the values of $u_a$ and $u_r$ that best align the estimated flag vector $\widehat{\mathbf{F}}$ with the reference vector $\mathbf{F}$.
@@ -119,5 +117,9 @@ The final choice $(u_{a,i*}, u_{r,j*})$ was the pair that produced a local maxim
 
 This grid-search approach is simple and reproducible. However, more efficient optimization algorithms (for example, Bayesian optimization, coordinate search, or gradient-free methods) could replace the exhaustive search to reduce computation while achieving similar or better results.
 
+## Visualization of trend detection using overlapping rolling wodnows
 
+<video src="DetectionExample.mp4" controls width="600">
+  Your browser does not support the video tag.
+</video>
 
