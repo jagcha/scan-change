@@ -123,9 +123,11 @@ This grid-search approach is simple and reproducible. However, more efficient op
   Your browser does not support the video tag.
 </video>
 
-## Zoom in in flagged event
+## Zoom in on Flagged Events
 
-Once the exact moment is flagged, you can extract the charactewristic of this event. For the propose of my study, I had to extractthe duration, the average increase in activity above the threshold, and the average decrease in rumination below the threshold. The giff below summarices goe from a detected event it is possible to extract magnitudes that confers information of such event.
+Once an event is flagged, you can extract its characteristics. For the purposes of my study, I extracted the duration, the average increase in activity above the threshold, and the average decrease in rumination below the threshold.  
+
+The GIF below summarizes how, from a detected event, it is possible to extract magnitudes that provide information about the event.
 
 ![xtraction of information in behavioral change](Zoomin.gif)
 
