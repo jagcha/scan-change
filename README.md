@@ -1,4 +1,4 @@
-# scan-change
+# scanme
 
 Show how I implement a sliding window to detect changes in activity and rumination.
 
@@ -122,4 +122,6 @@ This grid-search approach is simple and reproducible. However, more efficient op
 <video src=https://github.com/user-attachments/assets/8adc43b0-d87a-4d91-91b2-3975d3d4ac34 controls width="600">
   Your browser does not support the video tag.
 </video>
+
+## Implementation in base-R
 
