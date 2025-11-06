@@ -149,3 +149,23 @@ The function expects a **data frame** passed to the argument `data`. For proper 
 ### Output
 
 The script generates plots of **raw and smoothed activity and rumination**, along with the **Flagged events** indicating behavioral changes.
+
+## Limitations and Scope
+
+The program `scanme.R` was implemented in base R to provide a clear and fundamental example of sliding-window analysis. The core function, `scanme()`, is computationally intensive and can be slow on large datasets. Performance could be improved through code optimization or alternative implementations.
+
+This repository offers a reproducible, real-world example of how sliding windows can be used to detect time-dependent events in high-frequency behavioral data.
+
+For applications involving a large number of animals, and in case you wish to use `scanme()`, I would recommend leveraging parallel computing.
+
+
+## References
+
+Akidau, T., Balikov, A., Bekiroğlu, K., Chernyak, S., Haberman, J., Lax, R., McVeety, S., Mills, D., Nordstrom, P., & Whittle, S. (2013). *MillWheel: Fault-Tolerant Stream Processing at Internet Scale*.
+
+Verwiebe, J., Grulich, P. M., Traub, J., & Markl, V. (2023). *Survey of window types for aggregation in stream processing systems*.
+
+Singh, T., Kalra, R., Mishra, S., Satakshi, & Kumar, M. (2022). *An efficient real‑time stock prediction exploiting incremental learning and deep learning*.
+
+
+
