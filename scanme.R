@@ -15,7 +15,7 @@ scanme <- function(data, w1_width = 16 , w2_width = 48, w3_width = 252, slide = 
   data$w1am <- data$w1rm <- data$w3am <- data$w3as <- data$w3rm <- data$w3rs <- data$n1 <- data$n3 <- NA # Set empty columns.
   data$Flag <- 0 # By default any event is flagged.
   idx <- 1 # Used for indexation.
-  nlim <- nrow(data) # Used for identify uper bound of iteration.
+  nlim <- nrow(data) # Used for identify upper bound of iteration.
   while (idx <= nlim) {
     # Get upper bound of w1:
     w1ub <- data$DateTime[idx]
@@ -69,9 +69,9 @@ scanme <- function(data, w1_width = 16 , w2_width = 48, w3_width = 252, slide = 
 fdf <- scanme(fdf)
 
 ################################ Show Activity #################################
-ath <- 2 # Threshold for activity.
+ath <- 2 # Unit affecting threshold for activity.
 layout(matrix(c(1,2), nrow = 2))
-red.act <- (fdf$Activity- min(fdf$Activity))/(max(fdf$Activity) - min(fdf$Activity))
+red.act <- (fdf$Activity - min(fdf$Activity))/(max(fdf$Activity) - min(fdf$Activity))
 ## Plotting Activity Raw Data:
 par(mar=c(0,5,2,0)+.1, mgp = c(3,1,0))
 plot(fdf$Activity ~ fdf$DateTime,
@@ -83,8 +83,8 @@ plot(fdf$Activity ~ fdf$DateTime,
      cex.lab = 1,
      cex.axis = 1)
 # Remove NAs:
-sub_fdf = fdf[!is.na(fdf$w1am), ] # We only take this rows without NAs.
-# red.Ind: range from 0 to 1.
+sub_fdf = fdf[!is.na(fdf$w1am), ]
+# red.w1am: range from 0 to 1.
 red.w1am = (sub_fdf$w1am - min(sub_fdf$w1am))/(max(sub_fdf$w1am) - min(sub_fdf$w1am))
 ## Plotting w1am
 par(mar=c(2,5,0,0)+.1, mgp = c(2,0.4,0))
@@ -111,9 +111,9 @@ plot((sub_fdf$w3am + ath*sub_fdf$w3as) ~ sub_fdf$DateTime,
      cex = .5)
 
 ############################## Show Rumination #################################
-rth <- .5 # rumination sd threshold.
+rth <- .5 # Unit affecting threshold for rumination.
 layout(matrix(c(1,2), nrow = 2))
-red.rum <- (fdf$Rumination- min(fdf$Rumination))/(max(fdf$Rumination) - min(fdf$Rumination))
+red.rum <- (fdf$Rumination - min(fdf$Rumination))/(max(fdf$Rumination) - min(fdf$Rumination))
 ## Plotting Rumination Raw Data:
 par(mar=c(0,5,2,0)+.1, mgp = c(3,1,0))
 plot(fdf$Rumination ~ fdf$DateTime,
@@ -125,8 +125,8 @@ plot(fdf$Rumination ~ fdf$DateTime,
      cex.lab = 1,
      cex.axis = 1)
 # Remove NAs:
-sub_fdf = fdf[!is.na(fdf$w1rm), ] # We only take this rows without NAs.
-# red.Ind: range from 0 to 1.
+sub_fdf = fdf[!is.na(fdf$w1rm), ]
+# red.w1rm: range from 0 to 1.
 red.w1rm = (sub_fdf$w1rm - min(sub_fdf$w1rm))/(max(sub_fdf$w1rm) - min(sub_fdf$w1rm))
 ## Plotting w1rm
 par(mar=c(2,5,0,0)+.1, mgp = c(2,0.4,0))
@@ -143,7 +143,6 @@ plot(sub_fdf$w1rm ~ sub_fdf$DateTime,
 mtext("Date Time", side = 1, line = 0.75)
 par(new=TRUE)
 plot((sub_fdf$w3rm - rth*sub_fdf$w3rs) ~ sub_fdf$DateTime,
-     # col=rgb(red.w1rm, 0.2, 0.25, 0.5), cex = .85, pch = 19,
      main = NULL, 
      xlab = "", 
      xaxt = "n",
@@ -156,7 +155,7 @@ plot((sub_fdf$w3rm - rth*sub_fdf$w3rs) ~ sub_fdf$DateTime,
 ################################ Visualization #################################
 layout(matrix(c(1,1,1,2,2,2,3,3,3,4,4,4,5), nrow = 13))
 ## Plotting Activity Raw Data:
-red.act <- (fdf$Activity- min(fdf$Activity))/(max(fdf$Activity) - min(fdf$Activity))
+red.act <- (fdf$Activity - min(fdf$Activity))/(max(fdf$Activity) - min(fdf$Activity))
 par(mar=c(0,5,2,0)+.1, mgp = c(3,1,0))
 plot(fdf$Activity ~ fdf$DateTime,
      col=rgb(red.act, 0.5, 0.25, 0.5), cex = 1, pch = 19,
@@ -167,8 +166,8 @@ plot(fdf$Activity ~ fdf$DateTime,
      cex.lab = 1,
      cex.axis = 1)
 # Remove NAs:
-sub_fdf = fdf[!is.na(fdf$w1am), ] # We only take this rows without NAs.
-# red.Ind: range from 0 to 1.
+sub_fdf = fdf[!is.na(fdf$w1am), ]
+# red.w1am: range from 0 to 1.
 red.w1am = (sub_fdf$w1am - min(sub_fdf$w1am))/(max(sub_fdf$w1am) - min(sub_fdf$w1am))
 ## Plotting w1am
 par(mar=c(0,5,0,0)+.1)
@@ -193,7 +192,7 @@ plot((sub_fdf$w3am + ath*sub_fdf$w3as) ~ sub_fdf$DateTime,
      pch = 19,
      cex = .5)
 ## Plotting Rumination Raw Data:
-red.rum <- (fdf$Rumination- min(fdf$Rumination))/(max(fdf$Rumination) - min(fdf$Rumination))
+red.rum <- (fdf$Rumination - min(fdf$Rumination))/(max(fdf$Rumination) - min(fdf$Rumination))
 par(mar=c(0,5,0,0)+.1, mgp = c(3,1,0))
 plot(fdf$Rumination ~ fdf$DateTime,
      col=rgb(red.rum, 0.5, 0.25, 0.5), cex = 1, pch = 19,
@@ -204,8 +203,8 @@ plot(fdf$Rumination ~ fdf$DateTime,
      cex.lab = 1,
      cex.axis = 1)
 # Remove NAs:
-sub_fdf = fdf[!is.na(fdf$w1rm), ] # We only take this rows without NAs.
-# red.Ind: range from 0 to 1.
+sub_fdf = fdf[!is.na(fdf$w1rm), ]
+# red.w1rm: range from 0 to 1.
 red.w1rm = (sub_fdf$w1rm - min(sub_fdf$w1rm))/(max(sub_fdf$w1rm) - min(sub_fdf$w1rm))
 ## Plotting w1rm
 par(mar=c(0,5,0,0)+.1)
@@ -229,7 +228,7 @@ plot((sub_fdf$w3rm - rth*sub_fdf$w3rs) ~ sub_fdf$DateTime,
      ylab = "",
      pch = 19,
      cex = .5)
-# Flagged behavior
+# Plot Flagged behavior
 red.Flag = (fdf$Flag - min(fdf$Flag))/(max(fdf$Flag) - min(fdf$Flag))
 par(mar=c(2,5,0,0)+.1)
 plot(fdf$Flag ~ fdf$DateTime,
@@ -242,4 +241,3 @@ plot(fdf$Flag ~ fdf$DateTime,
      cex.lab = 1,
      cex.axis = 1)
 mtext("Date Time", side = 1, line = 0.5)
-
