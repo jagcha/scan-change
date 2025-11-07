@@ -168,7 +168,7 @@ For applications involving a large number of animals, and in case you wish to us
 
 For other situations, you may want to tune each parameter `w1_width`, `w2_width`, `w3_width`, `slide`, and `ath`, `rth` to match your needs.
 
-This repository is just a starting point, not a finished recipe. Feel free to adapt it to your own context, and I encourage you to use one of the rarest senses sometimes found in science: common sense.
+This repository is just a starting point, not a finished recipe. Feel free to adapt it to your own context, using the rarest sense of all: common sense.
 
 
 ## References
